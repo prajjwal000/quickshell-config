@@ -15,7 +15,7 @@ Singleton {
   Process {
     id: scanner
     command: ["sh", "-c",
-      "find ~/Pictures/Wallpapers -maxdepth 2 -type f \\( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \\) 2>/dev/null | sort -u | head -200"
+      "find ~/Pictures/Wallpapers -maxdepth 3 -type f \\( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \\) 2>/dev/null | sort -u | head -200"
     ]
     running: false
     stdout: SplitParser {

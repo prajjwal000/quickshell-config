@@ -10,7 +10,7 @@ import Quickshell.Services.Pipewire
 Scope {
   id: root
   property var theme: DefaultTheme {}
-  property string font: "Hack Nerd Font"
+  property string font: "JetBrainsMono Nerd Font"
   property bool barVisible: true
 
   // MPRIS active player
@@ -100,50 +100,12 @@ Scope {
         anchors.leftMargin: 10
         anchors.rightMargin: 10
 
-        // Left section: Time + Workspaces + Now Playing
+        // Left section: Workspaces + Now Playing
         Row {
           id: leftSection
           anchors.left: parent.left
           anchors.verticalCenter: parent.verticalCenter
           spacing: 8
-
-          // Time
-          Rectangle {
-            height: 24
-            width: timeDate.width + 16
-            radius: 12
-            color: root.theme.bgSurface
-
-            Row {
-              id: timeDate
-              anchors.centerIn: parent
-              spacing: 8
-
-              Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: ""
-                color: root.theme.accentPrimary
-                font.pixelSize: 14
-                font.family: root.font
-              }
-
-              Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: Time.timeString
-                color: root.theme.textPrimary
-                font.pixelSize: 12
-                font.family: root.font
-              }
-
-              Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: Time.dateString
-                color: root.theme.textSecondary
-                font.pixelSize: 12
-                font.family: root.font
-              }
-            }
-          }
 
           // Workspaces
           Row {
@@ -186,7 +148,7 @@ Scope {
                   anchors.centerIn: parent
                   text: wsPill.modelData.id
                   color: wsPill.modelData.focused ? root.theme.bgBase : root.theme.textPrimary
-                  font.pixelSize: 11
+                  font.pixelSize: 12
                   font.family: root.font
                   font.bold: wsPill.modelData.focused
                 }
@@ -230,7 +192,7 @@ Scope {
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.activePlayer && root.activePlayer.isPlaying ? "󰐊" : "󰏤"
                 color: root.theme.accentPrimary
-                font.pixelSize: 14
+                font.pixelSize: 16
                 font.family: root.font
               }
 
@@ -243,7 +205,7 @@ Scope {
                   return artist ? artist + " - " + title : title;
                 }
                 color: root.theme.textPrimary
-                font.pixelSize: 11
+                font.pixelSize: 12
                 font.family: root.font
                 elide: Text.ElideRight
                 width: Math.min(implicitWidth, 200)
@@ -269,7 +231,7 @@ Scope {
             Accessible.name: "Active window: " + text
             text: Hyprland.activeToplevel ? Hyprland.activeToplevel.title : ""
             color: root.theme.textPrimary
-            font.pixelSize: 13
+            font.pixelSize: 14
             font.family: root.font
             elide: Text.ElideRight
             width: Math.min(implicitWidth, parent.width)
@@ -277,12 +239,51 @@ Scope {
           }
         }
 
-        // Right section: System Info + System Tray
+        // Right section: Time + System Info + System Tray
         Row {
           id: rightSection
           anchors.right: parent.right
           anchors.verticalCenter: parent.verticalCenter
           spacing: 8
+
+          // Time
+          Rectangle {
+            height: 24
+            width: timeDate.width + 16
+            radius: 12
+            color: root.theme.bgSurface
+
+            Row {
+              id: timeDate
+              anchors.centerIn: parent
+              spacing: 8
+
+              Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: "󰥔"
+                color: root.theme.accentPrimary
+                font.pixelSize: 16
+                font.family: root.font
+              }
+
+              Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: Time.timeString
+                color: root.theme.textPrimary
+                font.pixelSize: 13
+                font.family: root.font
+              }
+
+              // Text {
+              //   anchors.verticalCenter: parent.verticalCenter
+              //   text: Time.dateString
+              //   color: root.theme.textSecondary
+              //   font.pixelSize: 13
+              //   font.family: root.font
+              // }
+            }
+          }
+
 
           // Volume
           Rectangle {
@@ -318,7 +319,7 @@ Scope {
                   if (!sink || !sink.audio || sink.audio.muted) return root.theme.textMuted;
                   return root.theme.accentPrimary;
                 }
-                font.pixelSize: 14
+                font.pixelSize: 16
                 font.family: root.font
               }
 
@@ -331,7 +332,7 @@ Scope {
                   return Math.round(sink.audio.volume * 100) + "%";
                 }
                 color: root.theme.textPrimary
-                font.pixelSize: 11
+                font.pixelSize: 12
                 font.family: root.font
               }
             }
@@ -373,7 +374,7 @@ Scope {
                 anchors.verticalCenter: parent.verticalCenter
                 text: "󰃠"
                 color: root.theme.accentOrange
-                font.pixelSize: 14
+                font.pixelSize: 16
                 font.family: root.font
               }
 
@@ -381,7 +382,7 @@ Scope {
                 anchors.verticalCenter: parent.verticalCenter
                 text: Math.round(root.brightnessValue * 100) + "%"
                 color: root.theme.textPrimary
-                font.pixelSize: 11
+                font.pixelSize: 12
                 font.family: root.font
               }
             }
@@ -429,14 +430,14 @@ Scope {
                   anchors.verticalCenter: parent.verticalCenter
                   text: "󰻠"
                   color: root.theme.accentOrange
-                  font.pixelSize: 14
+                  font.pixelSize: 16
                   font.family: root.font
                 }
                 Text {
                   anchors.verticalCenter: parent.verticalCenter
                   text: SystemInfo.cpuUsage
                   color: root.theme.textPrimary
-                  font.pixelSize: 11
+                  font.pixelSize: 12
                   font.family: root.font
                 }
               }
@@ -468,14 +469,14 @@ Scope {
                     return "󰖪"
                   }
                   color: SystemInfo.networkType === "disconnected" ? root.theme.textMuted : root.theme.accentGreen
-                  font.pixelSize: 14
+                  font.pixelSize: 16
                   font.family: root.font
                 }
                 Text {
                   anchors.verticalCenter: parent.verticalCenter
                   text: SystemInfo.networkInfo
                   color: root.theme.textPrimary
-                  font.pixelSize: 11
+                  font.pixelSize: 12
                   font.family: root.font
                 }
               }
@@ -499,14 +500,14 @@ Scope {
                   anchors.verticalCenter: parent.verticalCenter
                   text: SystemInfo.batteryIcon
                   color: sysInfo.batteryColor
-                  font.pixelSize: 14
+                  font.pixelSize: 16
                   font.family: root.font
                 }
                 Text {
                   anchors.verticalCenter: parent.verticalCenter
                   text: SystemInfo.batteryLevel
                   color: root.theme.textPrimary
-                  font.pixelSize: 11
+                  font.pixelSize: 12
                   font.family: root.font
                 }
               }
@@ -530,14 +531,14 @@ Scope {
             //       anchors.verticalCenter: parent.verticalCenter
             //       text: "󰔏"
             //       color: root.theme.accentRed
-            //       font.pixelSize: 14
+            //       font.pixelSize: 16
             //       font.family: root.font
             //     }
             //     Text {
             //       anchors.verticalCenter: parent.verticalCenter
             //       text: SystemInfo.temperature
             //       color: root.theme.textPrimary
-            //       font.pixelSize: 11
+            //       font.pixelSize: 12
             //       font.family: root.font
             //     }
             //   }

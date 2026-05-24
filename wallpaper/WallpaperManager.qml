@@ -7,7 +7,7 @@ import QtQuick.Layouts
 Scope {
   id: root
   property var theme: DefaultTheme {}
-  property string font: "Hack Nerd Font"
+  property string font: "JetBrainsMono Nerd Font Propo"
 
   property string searchText: ""
   property string previewPath: ""
@@ -93,7 +93,7 @@ Scope {
           Text {
             text: "󰸉  Wallpaper"
             color: root.theme.accentPrimary
-            font.pixelSize: 14
+            font.pixelSize: 15
             font.family: root.font
             font.bold: true
           }
@@ -103,7 +103,7 @@ Scope {
           Text {
             text: root.filteredWallpapers.length + " images"
             color: root.theme.textMuted
-            font.pixelSize: 11
+            font.pixelSize: 12
             font.family: root.font
           }
 
@@ -120,7 +120,7 @@ Scope {
               anchors.centerIn: parent
               text: "󰑐"
               color: root.theme.textMuted
-              font.pixelSize: 14
+              font.pixelSize: 15
               font.family: root.font
             }
 
@@ -152,7 +152,7 @@ Scope {
             Text {
               text: ""
               color: root.theme.textMuted
-              font.pixelSize: 13
+              font.pixelSize: 14
               font.family: root.font
               Layout.alignment: Qt.AlignVCenter
             }
@@ -162,7 +162,7 @@ Scope {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
               color: root.theme.textPrimary
-              font.pixelSize: 13
+              font.pixelSize: 14
               font.family: root.font
               clip: true
               selectByMouse: true
@@ -182,7 +182,7 @@ Scope {
             Text {
               text: "Search wallpapers..."
               color: root.theme.textMuted
-              font.pixelSize: 13
+              font.pixelSize: 14
               font.family: root.font
               visible: searchInput.text === "" && !searchInput.activeFocus
             }
@@ -255,7 +255,7 @@ Scope {
                   anchors.centerIn: parent
                   text: modelData.split("/").pop()
                   color: "#ffffff"
-                  font.pixelSize: 9
+                  font.pixelSize: 10
                   font.family: root.font
                   elide: Text.ElideMiddle
                   width: parent.width - 8
@@ -278,7 +278,7 @@ Scope {
                   anchors.centerIn: parent
                   text: ""
                   color: root.theme.bgBase
-                  font.pixelSize: 12
+                  font.pixelSize: 13
                   font.family: root.font
                 }
               }
@@ -305,7 +305,7 @@ Scope {
             anchors.centerIn: parent
             text: "󰋩  No wallpapers found\nAdd images to ~/Pictures/Wallpapers/"
             color: root.theme.textMuted
-            font.pixelSize: 13
+            font.pixelSize: 14
             font.family: root.font
             horizontalAlignment: Text.AlignHCenter
             visible: wallpaperGrid.count === 0
@@ -321,23 +321,23 @@ Scope {
             spacing: 4
             Rectangle {
               width: hintClick.width + 8; height: 18; radius: 4; color: root.theme.bgSurface
-              Text { id: hintClick; anchors.centerIn: parent; text: "click"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font }
+              Text { id: hintClick; anchors.centerIn: parent; text: "click"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font }
             }
-            Text { text: "apply"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "apply"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Row {
             spacing: 4
             Rectangle {
               width: hintRight.width + 8; height: 18; radius: 4; color: root.theme.bgSurface
-              Text { id: hintRight; anchors.centerIn: parent; text: "right-click"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font }
+              Text { id: hintRight; anchors.centerIn: parent; text: "right-click"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font }
             }
-            Text { text: "preview"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "preview"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Row {
             spacing: 4
-            Text { text: "Backend: " + WallpaperService.backend; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "Backend: " + WallpaperService.backend; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Item { Layout.fillWidth: true }
@@ -385,14 +385,14 @@ Scope {
           Text {
             text: ""
             color: root.theme.bgBase
-            font.pixelSize: 14
+            font.pixelSize: 15
             font.family: root.font
             anchors.verticalCenter: parent.verticalCenter
           }
           Text {
             text: "Apply Wallpaper"
             color: root.theme.bgBase
-            font.pixelSize: 13
+            font.pixelSize: 14
             font.family: root.font
             font.bold: true
             anchors.verticalCenter: parent.verticalCenter

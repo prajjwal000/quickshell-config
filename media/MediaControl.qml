@@ -9,7 +9,7 @@ import QtQuick.Layouts
 Scope {
   id: root
   property var theme: DefaultTheme {}
-  property string font: "Hack Nerd Font"
+  property string font: "JetBrainsMono Nerd Font Propo"
 
   property var activePlayer: {
     const players = Mpris.players.values;
@@ -111,7 +111,7 @@ Scope {
             Layout.alignment: Qt.AlignHCenter
             text: "  No media playing"
             color: root.theme.textMuted
-            font.pixelSize: 14
+            font.pixelSize: 15
             font.family: root.font
             horizontalAlignment: Text.AlignHCenter
             visible: root.activePlayer === null
@@ -175,7 +175,7 @@ Scope {
               Text {
                 text: root.activePlayer ? root.activePlayer.trackArtist : ""
                 color: root.theme.textSecondary
-                font.pixelSize: 13
+                font.pixelSize: 14
                 font.family: root.font
                 elide: Text.ElideRight
                 Layout.fillWidth: true
@@ -188,7 +188,7 @@ Scope {
               Text {
                 text: root.activePlayer ? root.activePlayer.trackAlbum : ""
                 color: root.theme.textMuted
-                font.pixelSize: 12
+                font.pixelSize: 13
                 font.family: root.font
                 elide: Text.ElideRight
                 Layout.fillWidth: true
@@ -208,7 +208,7 @@ Scope {
                   return name !== "" ? "  " + name : "";
                 }
                 color: root.theme.textMuted
-                font.pixelSize: 11
+                font.pixelSize: 12
                 font.family: root.font
                 visible: text !== ""
               }
@@ -263,7 +263,7 @@ Scope {
               Text {
                 text: formatTime(root.activePlayer ? root.activePlayer.position : 0)
                 color: root.theme.textMuted
-                font.pixelSize: 10
+                font.pixelSize: 11
                 font.family: root.font
               }
 
@@ -272,7 +272,7 @@ Scope {
               Text {
                 text: formatTime(root.activePlayer ? root.activePlayer.length : 0)
                 color: root.theme.textMuted
-                font.pixelSize: 10
+                font.pixelSize: 11
                 font.family: root.font
               }
             }
@@ -408,7 +408,7 @@ Scope {
             Text {
               text: Math.round((root.activePlayer ? root.activePlayer.volume : 0) * 100) + "%"
               color: root.theme.textMuted
-              font.pixelSize: 10
+              font.pixelSize: 11
               font.family: root.font
             }
           }

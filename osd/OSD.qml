@@ -8,7 +8,7 @@ import QtQuick.Layouts
 Scope {
   id: root
   property var theme: DefaultTheme {}
-  property string font: "Hack Nerd Font"
+  property string font: "JetBrainsMono Nerd Font Propo"
 
   property bool showVolume: false
   property bool showBrightness: false
@@ -154,7 +154,7 @@ Scope {
             Text {
               text: root.volumeMuted ? "Mute" : Math.round(root.volumeValue * 100) + "%"
               color: root.theme.textSecondary
-              font.pixelSize: 10
+              font.pixelSize: 11
               font.family: root.font
               Layout.alignment: Qt.AlignHCenter
             }
@@ -224,7 +224,7 @@ Scope {
             Text {
               text: Math.round(root.brightnessValue * 100) + "%"
               color: root.theme.textSecondary
-              font.pixelSize: 10
+              font.pixelSize: 11
               font.family: root.font
               Layout.alignment: Qt.AlignHCenter
             }

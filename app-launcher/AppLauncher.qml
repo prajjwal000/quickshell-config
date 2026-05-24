@@ -9,7 +9,7 @@ import QtQuick.Layouts
 Scope {
   id: root
   property var theme: DefaultTheme {}
-  property string font: "Hack Nerd Font"
+  property string font: "JetBrainsMono Nerd Font Propo"
 
   IpcHandler {
     target: "launcher"
@@ -105,7 +105,7 @@ Scope {
         Text {
           text: "  Applications"
           color: root.theme.accentPrimary
-          font.pixelSize: 14
+          font.pixelSize: 16
           font.family: root.font
           font.bold: true
         }
@@ -191,7 +191,7 @@ Scope {
         Text {
           text: resultsList.count + " application" + (resultsList.count !== 1 ? "s" : "")
           color: root.theme.textMuted
-          font.pixelSize: 11
+          font.pixelSize: 12
           font.family: root.font
         }
 
@@ -278,7 +278,7 @@ Scope {
                 Text {
                   text: delegateRoot.modelData.name ?? ""
                   color: root.selectedIndex === delegateRoot.index ? root.theme.textPrimary : root.theme.textSecondary
-                  font.pixelSize: 13
+                  font.pixelSize: 14
                   font.family: root.font
                   font.bold: root.selectedIndex === delegateRoot.index
                   elide: Text.ElideRight
@@ -288,7 +288,7 @@ Scope {
                 Text {
                   text: delegateRoot.modelData.genericName ?? delegateRoot.modelData.comment ?? ""
                   color: root.theme.textMuted
-                  font.pixelSize: 11
+                  font.pixelSize: 12
                   font.family: root.font
                   elide: Text.ElideRight
                   Layout.fillWidth: true
@@ -312,7 +312,7 @@ Scope {
             anchors.centerIn: parent
             text: "  No applications found"
             color: root.theme.textMuted
-            font.pixelSize: 14
+            font.pixelSize: 16
             font.family: root.font
             visible: resultsList.count === 0 && searchInput.text !== ""
           }
@@ -327,27 +327,27 @@ Scope {
             spacing: 4
             Rectangle {
               width: hintUp.width + 8; height: 18; radius: 4; color: root.theme.bgSurface
-              Text { id: hintUp; anchors.centerIn: parent; text: "↑↓"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font }
+              Text { id: hintUp; anchors.centerIn: parent; text: "↑↓"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font }
             }
-            Text { text: "navigate"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "navigate"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Row {
             spacing: 4
             Rectangle {
               width: hintEnter.width + 8; height: 18; radius: 4; color: root.theme.bgSurface
-              Text { id: hintEnter; anchors.centerIn: parent; text: "⏎"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font }
+              Text { id: hintEnter; anchors.centerIn: parent; text: "⏎"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font }
             }
-            Text { text: "launch"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "launch"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Row {
             spacing: 4
             Rectangle {
               width: hintEsc.width + 8; height: 18; radius: 4; color: root.theme.bgSurface
-              Text { id: hintEsc; anchors.centerIn: parent; text: "esc"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font }
+              Text { id: hintEsc; anchors.centerIn: parent; text: "esc"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font }
             }
-            Text { text: "close"; color: root.theme.textMuted; font.pixelSize: 10; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
+            Text { text: "close"; color: root.theme.textMuted; font.pixelSize: 11; font.family: root.font; anchors.verticalCenter: parent.verticalCenter }
           }
 
           Item { Layout.fillWidth: true }
